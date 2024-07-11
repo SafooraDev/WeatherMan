@@ -114,7 +114,8 @@ def draw_horizontal_bar_charts(year, month, data_folder, city):
         raise ValueError(f"Failed to read data file for {year}/{month_str} in {city}")
 
     for row in data:
-        if row[2] and row[3] and row[2].replace('.', '', 1).isdigit() and row[3].replace('.', '', 1).isdigit():
+        if row[2] and row[3] and row[2].replace('.', '', 1).isdigit() \
+            and row[3].replace('.', '', 1).isdigit():
             date = row[0]
             high_temp = int(float(row[2]))
             low_temp = int(float(row[3]))
