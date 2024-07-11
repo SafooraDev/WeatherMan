@@ -132,12 +132,14 @@ def draw_combined_bar_chart(year, month, data_folder, city):
         raise ValueError(f"Failed to read data file for {year}/{month_str} in {city}")
 
     for row in data:
-        if row[2] and row[3] and row[2].replace('.', '', 1).isdigit() and row[3].replace('.', '', 1).isdigit():
+        if row[2] and row[3] and row[2].replace('.', '', 1).isdigit() \
+            and row[3].replace('.', '', 1).isdigit():
             date = row[0]
             high_temp = int(float(row[2]))
             low_temp = int(float(row[3]))
             print(
-                f"\033[1;30;40m {date} \033[1;34;40m {'+' * low_temp}  \033[1;31;40m {'+' * high_temp} \033[1;30;40m {low_temp}C - {high_temp}C \033[1;30;40m"
+                f"\033[1;30;40m {date} \033[1;34;40m {'+' * low_temp}  \033[1;31;40m 
+                {'+' * high_temp} \033[1;30;40m {low_temp}C - {high_temp}C \033[1;30;40m"
             )
 
 def main():
