@@ -3,7 +3,7 @@ import argparse
 import csv
 
 # Mapping of month numbers to their corresponding names
-month_map = {
+Month_Map = {
     1: 'Jan',
     2: 'Feb',
     3: 'Mar',
@@ -15,7 +15,7 @@ month_map = {
     9: 'Sep',
     10: 'Oct',
     11: 'Nov',
-    12: 'Dec'
+    12: 'Dec',
 }
 
 def read_weather_data(file_path):
@@ -73,7 +73,7 @@ def yearly_summary(year, data_folder, city):
     }
 
 def monthly_summary(year, month, data_folder, city):
-    month_str = month_map[month]
+    month_str = Month_Map[month]
     file_path = os.path.join(data_folder, city, f"{city}_{year}_{month_str}.txt")
     if not os.path.exists(file_path):
         raise ValueError(f"No data file found for {year}/{month_str} in {city}")
@@ -104,7 +104,7 @@ def monthly_summary(year, month, data_folder, city):
     }
 
 def draw_horizontal_bar_charts(year, month, data_folder, city):
-    month_str = month_map[month]
+    month_str = Month_Map[month]
     file_path = os.path.join(data_folder, city, f"{city}_{year}_{month_str}.txt")
     if not os.path.exists(file_path):
         raise ValueError(f"No data file found for {year}/{month_str} in {city}")
@@ -123,7 +123,7 @@ def draw_horizontal_bar_charts(year, month, data_folder, city):
             print(f"\033[1;30;40m {date} \033[1;34;40m {'+' * low_temp} \033[1;30;40m {low_temp}C")
 
 def draw_combined_bar_chart(year, month, data_folder, city):
-    month_str = month_map[month]
+    month_str = Month_Map[month]
     file_path = os.path.join(data_folder, city, f"{city}_{year}_{month_str}.txt")
     if not os.path.exists(file_path):
         raise ValueError(f"No data file found for {year}/{month_str} in {city}")
